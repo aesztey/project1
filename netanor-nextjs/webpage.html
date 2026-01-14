@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netanor - Your Trusted Telecom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset & Base */
+        * {margin:0; padding:0; box-sizing:border-box;}
+        body {font-family: 'Roboto', sans-serif; line-height:1.6; color:#333;}
+        a {text-decoration:none; color: inherit;}
+
+        /* Header */
+        header {background:#e60000; color:white; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center;}
+        header h1 {font-size:1.8rem;}
+        nav a {margin-left:1.5rem; font-weight:500;}
+
+        /* Hero Section */
+        .hero {background:#f5f5f5; text-align:center; padding:5rem 2rem;}
+        .hero h2 {font-size:2.5rem; margin-bottom:1rem;}
+        .hero p {font-size:1.2rem; margin-bottom:2rem; color:#666;}
+        .hero button {background:#e60000; color:white; border:none; padding:1rem 2rem; font-size:1rem; cursor:pointer; border-radius:5px;}
+        .hero button:hover {background:#b30000;}
+
+        /* Plans Section */
+        .plans {padding:5rem 2rem; background:white; text-align:center;}
+        .plans h2 {font-size:2rem; margin-bottom:3rem;}
+        .plan-container {display:flex; flex-wrap:wrap; justify-content:center; gap:2rem;}
+        .plan {border:1px solid #ddd; border-radius:10px; padding:2rem; width:300px; transition: transform 0.3s; background:#f9f9f9;}
+        .plan:hover {transform:translateY(-5px);}
+        .plan h3 {margin-bottom:1rem; color:#e60000;}
+        .plan p {margin-bottom:1rem; color:#555;}
+        .plan span {font-size:1.5rem; font-weight:700; color:#333;}
+
+        /* Features Section */
+        .features {padding:5rem 2rem; background:#f0f0f0; text-align:center;}
+        .features h2 {font-size:2rem; margin-bottom:3rem;}
+        .feature-cards {display:flex; flex-wrap:wrap; justify-content:center; gap:2rem;}
+        .feature {background:white; border-radius:10px; padding:2rem; width:250px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+        .feature h4 {margin-bottom:1rem; color:#e60000;}
+        .feature p {color:#555;}
+
+        /* Footer */
+        footer {background:#222; color:white; text-align:center; padding:2rem;}
+        footer a {color:white; margin:0 0.5rem;}
+        footer p {margin-top:1rem; font-size:0.9rem; color:#aaa;}
+
+        /* Responsive */
+        @media(max-width:768px) {
+            .plan-container, .feature-cards {flex-direction:column; align-items:center;}
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Netanor</h1>
+        <nav>
+            <a href="#plans">Plans</a>
+            <a href="#features">Features</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Fast. Reliable. Everywhere.</h2>
+        <p>Netanor brings you the best mobile and internet experience, connecting you wherever you go.</p>
+        <button>Get Started</button>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="plans" id="plans">
+        <h2>Our Plans</h2>
+        <div class="plan-container">
+            <div class="plan">
+                <h3>Basic</h3>
+                <p>Perfect for casual users.</p>
+                <span>$20/month</span>
+            </div>
+            <div class="plan">
+                <h3>Standard</h3>
+                <p>Ideal for everyday internet use.</p>
+                <span>$40/month</span>
+            </div>
+            <div class="plan">
+                <h3>Premium</h3>
+                <p>Unlimited data and premium support.</p>
+                <span>$70/month</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>Why Choose Netanor?</h2>
+        <div class="feature-cards">
+            <div class="feature">
+                <h4>High Speed</h4>
+                <p>Enjoy blazing-fast internet wherever you are.</p>
+            </div>
+            <div class="feature">
+                <h4>Wide Coverage</h4>
+                <p>Stay connected across cities and rural areas.</p>
+            </div>
+            <div class="feature">
+                <h4>24/7 Support</h4>
+                <p>Our experts are always ready to assist you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>Contact us: info@netanor.com | +1 234 567 890</p>
+        <div>
+            <a href="#">Facebook</a> | 
+            <a href="#">Twitter</a> | 
+            <a href="#">LinkedIn</a>
+        </div>
+        <p>&copy; 2026 Netanor. All rights reserved.</p>
+    </footer>
+</body>
+</html>
