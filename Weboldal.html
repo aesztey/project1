@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netanor - Kapcsolat, ami összeköt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'netanor': '#0066cc',
+                        'netanor-dark': '#004d99',
+                        'netanor-light': '#3399ff',
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(0, 102, 204, 0.3)',
+                        'glow-lg': '0 0 40px rgba(0, 102, 204, 0.4)',
+                        'glow-card': '0 4px 20px rgba(0, 102, 204, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-effect {
+            box-shadow: 0 0 30px rgba(0, 102, 204, 0.2);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 40px rgba(0, 102, 204, 0.35);
+        }
+        .card-glow {
+            box-shadow: 0 4px 25px rgba(0, 102, 204, 0.12);
+        }
+        .card-glow:hover {
+            box-shadow: 0 8px 40px rgba(0, 102, 204, 0.25);
+        }
+        .bg-glow {
+            background: radial-gradient(ellipse at center, rgba(0, 102, 204, 0.08) 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-sm shadow-md sticky top-0 z-50 glow-effect">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-netanor to-netanor-light rounded-full flex items-center justify-center shadow-glow">
+                        <span class="text-white font-bold text-xl">N</span>
+                    </div>
+                    <span class="text-2xl font-bold bg-gradient-to-r from-netanor to-netanor-light bg-clip-text text-transparent">Netanor</span>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#mobile-plans" class="text-gray-700 hover:text-netanor transition">Mobil</a>
+                    <a href="#internet-plans" class="text-gray-700 hover:text-netanor transition">Internet</a>
+                    <a href="#tv-plans" class="text-gray-700 hover:text-netanor transition">TV</a>
+                    <a href="#phones" class="text-gray-700 hover:text-netanor transition">Telefonok</a>
+                    <a href="#contact" class="text-gray-700 hover:text-netanor transition">Kapcsolat</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="flex items-center space-x-4">
+                    <button id="loginBtn" onclick="openLoginModal()" class="bg-gradient-to-r from-netanor to-netanor-light text-white px-6 py-2 rounded-full hover:shadow-glow transition font-medium">
+                        Belépés
+                    </button>
+                    <span id="loggedInUser" class="hidden text-gray-700 font-medium"></span>
+                    <button id="logoutBtn" onclick="logout()" class="hidden bg-gray-200 text-gray-700 px-6 py-2 rounded-full hover:bg-gray-300 transition font-medium">
+                        Kijelentkezés
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="bg-gradient-to-br from-netanor via-blue-600 to-netanor-light text-white py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        <div class="container mx-auto px-6 relative">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                        Kapcsolat, ami összeköt
+                    </h1>
+                    <p class="text-xl mb-8 text-blue-100">
+                        Fedezd fel a legjobb mobil-, internet- és TV csomagjainkat, amelyek tökéletesen illeszkednek az életedhez.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#mobile-plans" class="bg-white text-netanor px-8 py-3 rounded-full font-bold hover:shadow-glow-lg transition">
+                            Mobil csomagok
+                        </a>
+                        <a href="#phones" class="border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-netanor transition">
+                            Telefonok
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="w-72 h-72 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm animate-pulse" style="animation-duration: 3s;">
+                        <div class="w-56 h-56 bg-white/20 rounded-full flex items-center justify-center shadow-glow-lg">
+                            <span class="text-7xl">📱</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Plans Section -->
+    <section id="mobile-plans" class="py-20 scroll-mt-20 bg-glow">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Mobil Előfizetések</h2>
+            <p class="text-center text-gray-600 mb-12">Válaszd ki a hozzád illő mobil csomagot</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Basic Plan -->
+                <div class="bg-white rounded-2xl card-glow p-8 hover:-translate-y-2 transition-all duration-300 border border-blue-100">
+                    <div class="text-center mb-6">
+                        <span class="bg-blue-100 text-netanor px-4 py-1 rounded-full text-sm font-medium">Alap</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 text-center mb-2">Start</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold text-netanor">3 990</span>
+                        <span class="text-gray-600">Ft/hó</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            100 perc beszélgetés
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            100 SMS
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            5 GB adat
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            EU roaming
+                        </li>
+                    </ul>
+                    <button onclick="selectPlan('Mobil Start', '3 990 Ft/hó')" class="w-full bg-gradient-to-r from-netanor to-netanor-light text-white py-3 rounded-full font-bold hover:shadow-glow transition">
+                        Kiválasztom
+                    </button>
+                </div>
+
+                <!-- Popular Plan -->
+                <div class="bg-gradient-to-br from-netanor to-netanor-light rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 shadow-glow-lg relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-yellow-400 text-gray-800 px-4 py-1 rounded-full text-sm font-bold">⭐ Legnépszerűbb</span>
+                    </div>
+                    <div class="text-center mb-6 mt-2">
+                        <span class="bg-white/20 text-white px-4 py-1 rounded-full text-sm font-medium">Ajánlott</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white text-center mb-2">Korlátlan</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold text-white">7 990</span>
+                        <span class="text-blue-100">Ft/hó</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-white">
+                            <svg class="w-5 h-5 text-green-300 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Korlátlan beszélgetés
+                        </li>
+                        <li class="flex items-center text-white">
+                            <svg class="w-5 h-5 text-green-300 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Korlátlan SMS
+                        </li>
+                        <li class="flex items-center text-white">
+                            <svg class="w-5 h-5 text-green-300 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            30 GB adat
+                        </li>
+                        <li class="flex items-center text-white">
+                            <svg class="w-5 h-5 text-green-300 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            EU roaming
+                        </li>
+                    </ul>
+                    <button onclick="selectPlan('Mobil Korlátlan', '7 990 Ft/hó')" class="w-full bg-white text-netanor py-3 rounded-full font-bold hover:bg-gray-100 transition">
+                        Kiválasztom
+                    </button>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="bg-white rounded-2xl card-glow p-8 hover:-translate-y-2 transition-all duration-300 border border-blue-100">
+                    <div class="text-center mb-6">
+                        <span class="bg-purple-100 text-purple-700 px-4 py-1 rounded-full text-sm font-medium">Prémium</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 text-center mb-2">Ultra</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold text-netanor">12 990</span>
+                        <span class="text-gray-600">Ft/hó</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Korlátlan beszélgetés
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Korlátlan SMS
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Korlátlan 5G adat
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            EU + USA roaming
+                        </li>
+                    </ul>
+                    <button onclick="selectPlan('Mobil Ultra', '12 990 Ft/hó')" class="w-full bg-gradient-to-r from-netanor to-netanor-light text-white py-3 rounded-full font-bold hover:shadow-glow transition">
+                        Kiválasztom
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internet Plans Section -->
+    <section id="internet-plans" class="py-20 scroll-mt-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Otthoni Internet</h2>
+            <p class="text-center text-gray-600 mb-12">Villámgyors optikai internet otthonodba</p>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- 100 Mbps -->
+                <div class="bg-slate-50 rounded-2xl card-glow p-6 hover:-translate-y-2 transition-all duration-300 border border-blue-100">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <span class="text-2xl">🌐</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Alap 100</h3>
+                    <div class="text-center mb-4">
+                        <span class="text-3xl font-bold text-netanor">4 990</span>
+                        <span class="text-gray-600 text-sm">Ft/hó</span>
+                    </div>
+                    <div class="text-center mb-4">
+                        <span class="text-4xl font-bold text-gray-800">100</span>
+                        <span class="text-gray-600">Mbps</span>
+                    </div>
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Korlátlan forgalom
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            WiFi router
+                        </li>
+                    </ul>
+                    <button onclick="selectPlan('Internet 100 Mbps', '4 990 Ft/hó')" class="w-full bg-netanor text-white py-2 rounded-full font-medium hover:bg-netanor-dark transition text-sm">
+                        Megrendelem
+                    </button>
+                </div>
+
+                <!-- 300 Mbps -->
+                <div class="bg-slate-50 rounded-2xl card-glow p-6 hover:-translate-y-2 transition-all duration-300 border border-blue-100">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <span class="text-2xl">⚡</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Turbo 300</h3>
+                    <div class="text-center mb-4">
+                        <span class="text-3xl font-bold text-netanor">6 990</span>
+                        <span class="text-gray-600 text-sm">Ft/hó</span>
+                    </div>
+                    <div class="text-center mb-4">
+                        <span class="text-4xl font-bold text-gray-800">300</span>
+                        <span class="text-gray-600">Mbps</span>
+                    </div>
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Korlátlan forgalom
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            WiFi 6 router
+                        </li>
+                    </ul>
+                    <button onclick="selectPlan('Internet 300 Mbps', '6 990 Ft/hó')" class="w-full bg-netanor text-white py-2 rounded-full font-medium hover:bg-netanor-dark transition text-sm">
+                        Megrendelem
+                    </button>
+                </div>
+
+                <!-- 500 Mbps -->
+                <div class="bg-gradient-to-br from-netanor to-netanor-light rounded-2xl p-6 hover:-translate-y-2 transition-all duration-300 shadow-glow relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-yellow-400 text-gray-800 px-3 py-1 rounded-full text-xs font-bold">⭐ Ajánlott</span>
+                    </div>
+                    <div class="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto mt-2">
+                        <span class="text-2xl">🚀</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white text-center mb-2">Speed 500</h3>
+                    <div class="text-center mb-4">
+                        <span class="text-3xl font-bold text-white">8 990</span>
+                        <span class="text-blue-100 text-sm">Ft/hó</span>
+                    </div>
+                    <div class="text-center mb-4">
+                        <span class="text-4xl font-bold text-white">500</span>
+                        <span class="text-blue-100">Mbps</span>
+                    </div>
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center text-white">
+                            <svg class="w-4 h-4 text-green-300 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Korlátlan forgalom
+                        </li>
+                        <li class="flex items-center text-white">
+                            <svg class="w-4 h-4 text-green-300 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            WiFi 6E router
+                        </li>
+                    </ul>
+                    <button onclick="selectPlan('Internet 500 Mbps', '8 990 Ft/hó')" class="w-full bg-white text-netanor py-2 rounded-full font-medium hover:bg-gray-100 transition text-sm">
+                        Megrendelem
+                    </button>
+                </div>
+
+                <!-- 1 Gbps -->
+                <div class="bg-slate-50 rounded-2xl card-glow p-6 hover:-translate-y-2 transition-all duration-300 border border-purple-200">
+                    <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <span class="text-2xl">💎</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Giga 1000</h3>
+                    <div class="text-center mb-4">
+                        <span class="text-3xl font-bold text-purple-600">12 990</span>
+                        <span class="text-gray-600 text-sm">Ft/hó</span>
+                    </div>
+                    <div class="text-center mb-4">
+                        <span class="text-4xl font-bold text-gray-800">1</span>
+                        <span class="text-gray-600">Gbps</span>
+                    </div>
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Korlátlan forgalom
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Mesh WiFi rendszer
+                        </li>
+                    </ul>
+                    <button onclick="selectPlan('Internet 1 Gbps', '12 990 Ft/hó')" class="w-full bg-purple-600 text-white py-2 rounded-full font-medium hover:bg-purple-700 transition text-sm">
+                        Megrendelem
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TV Plans Section -->
+    <section id="tv-plans" class="py-20 scroll-mt-20 bg-glow">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">TV Csomagok</h2>
+            <p class="text-center text-gray-600 mb-12">Prémium szórakozás a családnak</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Basic TV -->
+                <div class="bg-white rounded-2xl card-glow p-8 hover:-translate-y-2 transition-all duration-300 border border-blue-100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <span class="text-3xl">📺</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 text-center mb-2">Alap TV</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold text-netanor">2 990</span>
+                        <span class="text-gray-600">Ft/hó</span>
+                    </div>
+                    <div class="bg-slate-50 rounded-xl p-4 mb-6">
+                        <h4 class="font-bold text-gray-800 mb-3">50+ csatorna</h4>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-blue-100 text-netanor px-2 py-1 rounded">RTL Klub</span>
+                            <span class="bg-blue-100 text-netanor px-2 py-1 rounded">TV2</span>
+                            <span class="bg-blue-100 text-netanor px-2 py-1 rounded">M1</span>
+                            <span class="bg-blue-100 text-netanor px-2 py-1 rounded">Duna TV</span>
+                            <span class="bg-gray-200 text-gray-600 px-2 py-1 rounded">+46 csatorna</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            HD minőség
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            Sport csatornák
+                        </li>
+                    </ul>
+                    <button onclick="selectPlan('Alap TV csomag', '2 990 Ft/hó')" class="w-full bg-gradient-to-r from-netanor to-netanor-light text-white py-3 rounded-full font-bold hover:shadow-glow transition">
+                        Kiválasztom
+                    </button>
+                </div>
+
+                <!-- Family TV -->
+                <div class="bg-gradient-to-br from-netanor to-netanor-light rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 shadow-glow-lg relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-yellow-400 text-gray-800 px-4 py-1 rounded-full text-sm font-bold">⭐ Családoknak</span>
+                    </div>
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 mx-auto mt-2">
+                        <span class="text-3xl">🎬</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white text-center mb-2">Családi TV</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold text-white">5 990</span>
+                        <span class="text-blue-100">Ft/hó</span>
+                    </div>
+                    <div class="bg-white/10 rounded-xl p-4 mb-6">
+                        <h4 class="font-bold text-white mb-3">100+ csatorna</h4>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-white/20 text-white px-2 py-1 rounded">HBO</span>
+                            <span class="bg-white/20 text-white px-2 py-1 rounded">Film+</span>
+                            <span class="bg-white/20 text-white px-2 py-1 rounded">Disney</span>
+                            <span class="bg-white/20 text-white px-2 py-1 rounded">Cartoon</span>
+                            <span class="bg-white/30 text-white px-2 py-1 rounded">+96 csatorna</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center text-white">
+                            <svg class="w-4 h-4 text-green-300 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Full HD minőség
+                        </li>
+                        <li class="flex items-center text-white">
+                            <svg class="w-4 h-4 text-green-300 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            7 napos visszanézés
+                        </li>
+                    </ul>
+                    <button onclick="selectPlan('Családi TV csomag', '5 990 Ft/hó')" class="w-full bg-white text-netanor py-3 rounded-full font-bold hover:bg-gray-100 transition">
+                        Kiválasztom
+                    </button>
+                </div>
+
+                <!-- Premium TV -->
+                <div class="bg-white rounded-2xl card-glow p-8 hover:-translate-y-2 transition-all duration-300 border border-purple-200">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <span class="text-3xl">🏆</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 text-center mb-2">Sport+ Prémium</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold text-purple-600">9 990</span>
+                        <span class="text-gray-600">Ft/hó</span>
+                    </div>
+                    <div class="bg-slate-50 rounded-xl p-4 mb-6">
+                        <h4 class="font-bold text-gray-800 mb-3">150+ csatorna</h4>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded">Sport1</span>
+                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded">Sport2</span>
+                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded">Eurosport</span>
+                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded">Arena4</span>
+                            <span class="bg-gray-200 text-gray-600 px-2 py-1 rounded">+146 csatorna</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            4K Ultra HD
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            30 napos visszanézés
+                        </li>
+                    </ul>
+                    <button onclick="selectPlan('Sport+ Prémium TV', '9 990 Ft/hó')" class="w-full bg-purple-600 text-white py-3 rounded-full font-bold hover:bg-purple-700 transition">
+                        Kiválasztom
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phones Section -->
+    <section id="phones" class="py-20 scroll-mt-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Telefonok</h2>
+            <p class="text-center text-gray-600 mb-12">Válaszd ki álmaid telefonját kedvező áron</p>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- iPhone 15 Pro -->
+                <div class="bg-slate-50 rounded-2xl card-glow p-6 hover:-translate-y-2 transition-all duration-300 border border-blue-100 group">
+                    <div class="h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition">
+                        <span class="text-8xl">📱</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-1">iPhone 15 Pro</h3>
+                    <p class="text-gray-500 text-sm mb-3">128 GB • Titán</p>
+                    <div class="mb-4">
+                        <span class="text-2xl font-bold text-netanor">449 990</span>
+                        <span class="text-gray-600 text-sm">Ft</span>
+                    </div>
+                    <p class="text-green-600 text-sm mb-4">vagy 18 750 Ft/hó (24 hónap)</p>
+                    <button onclick="openPhoneModal('iPhone 15 Pro')" class="w-full bg-gradient-to-r from-netanor to-netanor-light text-white py-2 rounded-full font-medium hover:shadow-glow transition">
+                        Részletek
+                    </button>
+                </div>
+
+                <!-- Samsung S24 Ultra -->
+                <div class="bg-slate-50 rounded-2xl card-glow p-6 hover:-translate-y-2 transition-all duration-300 border border-blue-100 group relative">
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">-15%</span>
+                    </div>
+                    <div class="h-48 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition">
+                        <span class="text-8xl">📱</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-1">Samsung S24 Ultra</h3>
+                    <p class="text-gray-500 text-sm mb-3">256 GB • Titanium Gray</p>
+                    <div class="mb-1">
+                        <span class="text-gray-400 line-through text-sm">529 990 Ft</span>
+                    </div>
+                    <div class="mb-4">
+                        <span class="text-2xl font-bold text-netanor">449 990</span>
+                        <span class="text-gray-600 text-sm">Ft</span>
+                    </div>
+                    <p class="text-green-600 text-sm mb-4">vagy 18 750 Ft/hó (24 hónap)</p>
+                    <button onclick="openPhoneModal('Samsung S24 Ultra')" class="w-full bg-gradient-to-r from-netanor to-netanor-light text-white py-2 rounded-full font-medium hover:shadow-glow transition">
+                        Részletek
+                    </button>
+                </div>
+
+                <!-- Google Pixel 8 -->
+                <div class="bg-slate-50 rounded-2xl card-glow p-6 hover:-translate-y-2 transition-all duration-300 border border-blue-100 group">
+                    <div class="h-48 bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition">
+                        <span class="text-8xl">📱</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-1">Google Pixel 8 Pro</h3>
+                    <p class="text-gray-500 text-sm mb-3">128 GB • Obsidian</p>
+                    <div class="mb-4">
+                        <span class="text-2xl font-bold text-netanor">349 990</span>
+                        <span class="text-gray-600 text-sm">Ft</span>
+                    </div>
+                    <p class="text-green-600 text-sm mb-4">vagy 14 580 Ft/hó (24 hónap)</p>
+                    <button onclick="openPhoneModal('Google Pixel 8 Pro')" class="w-full bg-gradient-to-r from-netanor to-netanor-light text-white py-2 rounded-full font-medium hover:shadow-glow transition">
+                        Részletek
+                    </button>
+                </div>
+
+                <!-- Xiaomi 14 -->
+                <div class="bg-slate-50 rounded-2xl card-glow p-6 hover:-translate-y-2 transition-all duration-300 border border-blue-100 group relative">
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-bold">Új!</span>
+                    </div>
+                    <div class="h-48 bg-gradient-to-br from-orange-100 to-orange-200 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition">
+                        <span class="text-8xl">📱</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-1">Xiaomi 14 Ultra</h3>
+                    <p class="text-gray-500 text-sm mb-3">512 GB • Fekete</p>
+                    <div class="mb-4">
+                        <span class="text-2xl font-bold text-netanor">399 990</span>
+                        <span class="text-gray-600 text-sm">Ft</span>
+                    </div>
+                    <p class="text-green-600 text-sm mb-4">vagy 16 660 Ft/hó (24 hónap)</p>
+                    <button onclick="openPhoneModal('Xiaomi 14 Ultra')" class="w-full bg-gradient-to-r from-netanor to-netanor-light text-white py-2 rounded-full font-medium hover:shadow-glow transition">
+                        Részletek
+                    </button>
+                </div>
+            </div>
+
+            <!-- More phones button -->
+            <div class="text-center mt-12">
+                <button onclick="openAllPhonesModal()" class="bg-white border-2 border-netanor text-netanor px-10 py-4 rounded-full font-bold hover:bg-netanor hover:text-white transition">
+                    Összes telefon megtekintése
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gradient-to-br from-slate-900 to-blue-900 scroll-mt-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-white mb-12">Miért válassz minket?</h2>
+            
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="font-bold text-white mb-2">Gyors hálózat</h3>
+                    <p class="text-blue-200">Magyarország legnagyobb 5G hálózata</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition">
+                    <div class="text-4xl mb-4">🛡️</div>
+                    <h3 class="font-bold text-white mb-2">Biztonság</h3>
+                    <p class="text-blue-200">Adataid mindig védve vannak</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition">
+                    <div class="text-4xl mb-4">💬</div>
+                    <h3 class="font-bold text-white mb-2">24/7 Támogatás</h3>
+                    <p class="text-blue-200">Bármikor elérsz minket</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition">
+                    <div class="text-4xl mb-4">💎</div>
+                    <h3 class="font-bold text-white mb-2">Minőség</h3>
+                    <p class="text-blue-200">Prémium szolgáltatás kedvező áron</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-900 text-white py-12 scroll-mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-br from-netanor to-netanor-light rounded-full flex items-center justify-center shadow-glow">
+                            <span class="text-white font-bold">N</span>
+                        </div>
+                        <span class="text-xl font-bold">Netanor</span>
+                    </div>
+                    <p class="text-gray-400">Kapcsolat, ami összeköt.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Szolgáltatások</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#mobile-plans" class="hover:text-netanor-light transition">Mobil</a></li>
+                        <li><a href="#internet-plans" class="hover:text-netanor-light transition">Internet</a></li>
+                        <li><a href="#tv-plans" class="hover:text-netanor-light transition">TV</a></li>
+                        <li><a href="#phones" class="hover:text-netanor-light transition">Telefonok</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Támogatás</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#features" class="hover:text-netanor-light transition">GYIK</a></li>
+                        <li><a href="#contact" class="hover:text-netanor-light transition">Kapcsolat</a></li>
+                        <li><a href="#" class="hover:text-netanor-light transition">Üzletek</a></li>
+                        <li><a href="#contact" class="hover:text-netanor-light transition">Hibabejelentés</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Kövess minket</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-netanor transition hover:shadow-glow">
+                            <span>📘</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-netanor transition hover:shadow-glow">
+                            <span>📸</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-netanor transition hover:shadow-glow">
+                            <span>🐦</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 Netanor. Minden jog fenntartva.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden glow-effect">
+            <!-- Modal Header -->
+            <div class="bg-gradient-to-r from-netanor to-netanor-light px-8 py-6">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                            <span class="text-netanor font-bold text-xl">N</span>
+                        </div>
+                        <span class="text-2xl font-bold text-white">Netanor</span>
+                    </div>
+                    <button onclick="closeLoginModal()" class="text-white hover:text-blue-200 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <p class="text-blue-100 mt-2">Jelentkezz be a fiókodba</p>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="px-8 py-6">
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="mb-4">
+                        <label for="username" class="block text-gray-700 font-medium mb-2">Felhasználónév</label>
+                        <input type="text" id="username" name="username" 
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-netanor focus:border-transparent transition"
+                            placeholder="Add meg a felhasználóneved">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="password" class="block text-gray-700 font-medium mb-2">Jelszó</label>
+                        <input type="password" id="password" name="password" 
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-netanor focus:border-transparent transition"
+                            placeholder="Add meg a jelszavad">
+                    </div>
+                    
+                    <div id="errorMessage" class="hidden mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                        Hibás felhasználónév vagy jelszó!
+                    </div>
+                    
+                    <button type="submit" 
+                        class="w-full bg-gradient-to-r from-netanor to-netanor-light text-white py-3 rounded-full font-bold hover:shadow-glow transition">
+                        Bejelentkezés
+                    </button>
+                </form>
+                
+                <div class="mt-6 text-center">
+                    <a href="#" class="text-netanor hover:text-netanor-dark transition text-sm">Elfelejtetted a jelszavad?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 p-8 text-center glow-effect">
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Sikeres bejelentkezés!</h3>
+            <p class="text-gray-600 mb-6">Üdvözlünk, <span id="welcomeName" class="font-semibold text-netanor"></span>!</p>
+            <button onclick="closeSuccessModal()" 
+                class="bg-gradient-to-r from-netanor to-netanor-light text-white px-8 py-3 rounded-full font-bold hover:shadow-glow transition">
+                Tovább
+            </button>
+        </div>
+    </div>
+
+    <!-- Plan Selection Modal -->
+    <div id="planModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 p-8 glow-effect">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-netanor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Csomag kiválasztva!</h3>
+                <p class="text-gray-600">Kiválasztott csomag:</p>
+                <p class="text-xl font-bold text-netanor mt-2" id="selectedPlanName"></p>
+                <p class="text-gray-600" id="selectedPlanPrice"></p>
+            </div>
+            <div class="flex gap-4">
+                <button onclick="closePlanModal()" class="flex-1 bg-gray-200 text-gray-700 py-3 rounded-full font-bold hover:bg-gray-300 transition">
+                    Vissza
+                </button>
+                <button onclick="confirmPlan()" class="flex-1 bg-gradient-to-r from-netanor to-netanor-light text-white py-3 rounded-full font-bold hover:shadow-glow transition">
+                    Megrendelem
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phone Details Modal -->
+    <div id="phoneModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-4 my-8 glow-effect">
+            <div class="bg-gradient-to-r from-netanor to-netanor-light px-8 py-6 rounded-t-2xl">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-2xl font-bold text-white" id="phoneModalTitle">Telefon részletek</h3>
+                    <button onclick="closePhoneModal()" class="text-white hover:text-blue-200 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="p-8" id="phoneModalContent">
+                <!-- Content will be injected by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- All Phones Modal -->
+    <div id="allPhonesModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl mx-4 my-8 glow-effect">
+            <div class="bg-gradient-to-r from-netanor to-netanor-light px-8 py-6 rounded-t-2xl">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-2xl font-bold text-white">Összes telefon</h3>
+                    <button onclick="closeAllPhonesModal()" class="text-white hover:text-blue-200 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="p-8">
+                <div class="grid md:grid-cols-3 gap-6" id="allPhonesList">
+                    <!-- Phones will be injected by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // User credentials
+        const validUser = {
+            username: 'Gipsz Jakab',
+            password: '12345'
+        };
+
+        // Phone data
+        const phones = [
+            { 
+                name: 'iPhone 15 Pro', 
+                storage: '128 GB', 
+                color: 'Titán', 
+                price: 449990, 
+                monthly: 18750, 
+                image: '📱', 
+                gradient: 'from-gray-100 to-gray-200',
+                colors: [
+                    { name: 'Titán', code: '#8a8a8f', gradient: 'from-gray-100 to-gray-200' },
+                    { name: 'Kék Titán', code: '#4a5568', gradient: 'from-blue-100 to-blue-200' },
+                    { name: 'Fehér Titán', code: '#e2e2e2', gradient: 'from-gray-50 to-gray-100' },
+                    { name: 'Fekete Titán', code: '#1a1a1a', gradient: 'from-gray-300 to-gray-400' }
+                ],
+                storages: [
+                    { size: '128 GB', priceAdd: 0 },
+                    { size: '256 GB', priceAdd: 50000 },
+                    { size: '512 GB', priceAdd: 150000 },
+                    { size: '1 TB', priceAdd: 300000 }
+                ]
+            },
+            { 
+                name: 'iPhone 15 Pro Max', 
+                storage: '256 GB', 
+                color: 'Kék Titán', 
+                price: 549990, 
+                monthly: 22916, 
+                image: '📱', 
+                gradient: 'from-blue-100 to-blue-200',
+                colors: [
+                    { name: 'Kék Titán', code: '#4a5568', gradient: 'from-blue-100 to-blue-200' },
+                    { name: 'Titán', code: '#8a8a8f', gradient: 'from-gray-100 to-gray-200' },
+                    { name: 'Fehér Titán', code: '#e2e2e2', gradient: 'from-gray-50 to-gray-100' },
+                    { name: 'Fekete Titán', code: '#1a1a1a', gradient: 'from-gray-300 to-gray-400' }
+                ],
+                storages: [
+                    { size: '256 GB', priceAdd: 0 },
+                    { size: '512 GB', priceAdd: 100000 },
+                    { size: '1 TB', priceAdd: 250000 }
+                ]
+            },
+            { 
+                name: 'iPhone 15', 
+                storage: '128 GB', 
+                color: 'Rózsaszín', 
+                price: 349990, 
+                monthly: 14583, 
+                image: '📱', 
+                gradient: 'from-pink-100 to-pink-200',
+                colors: [
+                    { name: 'Rózsaszín', code: '#f9a8d4', gradient: 'from-pink-100 to-pink-200' },
+                    { name: 'Kék', code: '#60a5fa', gradient: 'from-blue-100 to-blue-200' },
+                    { name: 'Zöld', code: '#86efac', gradient: 'from-green-100 to-green-200' },
+                    { name: 'Sárga', code: '#fde047', gradient: 'from-yellow-100 to-yellow-200' },
+                    { name: 'Fekete', code: '#1a1a1a', gradient: 'from-gray-200 to-gray-300' }
+                ],
+                storages: [
+                    { size: '128 GB', priceAdd: 0 },
+                    { size: '256 GB', priceAdd: 50000 },
+                    { size: '512 GB', priceAdd: 150000 }
+                ]
+            },
+            { 
+                name: 'Samsung S24 Ultra', 
+                storage: '256 GB', 
+                color: 'Titanium Gray', 
+                price: 449990, 
+                monthly: 18750, 
+                discount: 15, 
+                originalPrice: 529990, 
+                image: '📱', 
+                gradient: 'from-purple-100 to-purple-200',
+                colors: [
+                    { name: 'Titanium Gray', code: '#6b7280', gradient: 'from-gray-200 to-gray-300' },
+                    { name: 'Titanium Black', code: '#1f2937', gradient: 'from-gray-300 to-gray-400' },
+                    { name: 'Titanium Violet', code: '#8b5cf6', gradient: 'from-purple-100 to-purple-200' },
+                    { name: 'Titanium Yellow', code: '#fbbf24', gradient: 'from-yellow-100 to-yellow-200' }
+                ],
+                storages: [
+                    { size: '256 GB', priceAdd: 0 },
+                    { size: '512 GB', priceAdd: 80000 },
+                    { size: '1 TB', priceAdd: 200000 }
+                ]
+            },
+            { 
+                name: 'Samsung S24+', 
+                storage: '256 GB', 
+                color: 'Cobalt Violet', 
+                price: 399990, 
+                monthly: 16666, 
+                image: '📱', 
+                gradient: 'from-violet-100 to-violet-200',
+                colors: [
+                    { name: 'Cobalt Violet', code: '#7c3aed', gradient: 'from-violet-100 to-violet-200' },
+                    { name: 'Onyx Black', code: '#1a1a1a', gradient: 'from-gray-200 to-gray-300' },
+                    { name: 'Marble Gray', code: '#9ca3af', gradient: 'from-gray-100 to-gray-200' },
+                    { name: 'Amber Yellow', code: '#f59e0b', gradient: 'from-amber-100 to-amber-200' }
+                ],
+                storages: [
+                    { size: '256 GB', priceAdd: 0 },
+                    { size: '512 GB', priceAdd: 80000 }
+                ]
+            },
+            { 
+                name: 'Samsung S24', 
+                storage: '128 GB', 
+                color: 'Onyx Black', 
+                price: 299990, 
+                monthly: 12499, 
+                image: '📱', 
+                gradient: 'from-gray-200 to-gray-300',
+                colors: [
+                    { name: 'Onyx Black', code: '#1a1a1a', gradient: 'from-gray-200 to-gray-300' },
+                    { name: 'Marble Gray', code: '#9ca3af', gradient: 'from-gray-100 to-gray-200' },
+                    { name: 'Cobalt Violet', code: '#7c3aed', gradient: 'from-violet-100 to-violet-200' },
+                    { name: 'Amber Yellow', code: '#f59e0b', gradient: 'from-amber-100 to-amber-200' }
+                ],
+                storages: [
+                    { size: '128 GB', priceAdd: 0 },
+                    { size: '256 GB', priceAdd: 40000 }
+                ]
+            },
+            { 
+                name: 'Google Pixel 8 Pro', 
+                storage: '128 GB', 
+                color: 'Obsidian', 
+                price: 349990, 
+                monthly: 14580, 
+                image: '📱', 
+                gradient: 'from-green-100 to-green-200',
+                colors: [
+                    { name: 'Obsidian', code: '#1a1a1a', gradient: 'from-gray-200 to-gray-300' },
+                    { name: 'Porcelain', code: '#f5f5f4', gradient: 'from-stone-50 to-stone-100' },
+                    { name: 'Bay', code: '#0ea5e9', gradient: 'from-sky-100 to-sky-200' }
+                ],
+                storages: [
+                    { size: '128 GB', priceAdd: 0 },
+                    { size: '256 GB', priceAdd: 50000 },
+                    { size: '512 GB', priceAdd: 130000 }
+                ]
+            },
+            { 
+                name: 'Google Pixel 8', 
+                storage: '128 GB', 
+                color: 'Hazel', 
+                price: 269990, 
+                monthly: 11249, 
+                image: '📱', 
+                gradient: 'from-amber-100 to-amber-200',
+                colors: [
+                    { name: 'Hazel', code: '#92400e', gradient: 'from-amber-100 to-amber-200' },
+                    { name: 'Obsidian', code: '#1a1a1a', gradient: 'from-gray-200 to-gray-300' },
+                    { name: 'Rose', code: '#fb7185', gradient: 'from-rose-100 to-rose-200' }
+                ],
+                storages: [
+                    { size: '128 GB', priceAdd: 0 },
+                    { size: '256 GB', priceAdd: 50000 }
+                ]
+            },
+            { 
+                name: 'Xiaomi 14 Ultra', 
+                storage: '512 GB', 
+                color: 'Fekete', 
+                price: 399990, 
+                monthly: 16660, 
+                isNew: true, 
+                image: '📱', 
+                gradient: 'from-orange-100 to-orange-200',
+                colors: [
+                    { name: 'Fekete', code: '#1a1a1a', gradient: 'from-gray-200 to-gray-300' },
+                    { name: 'Fehér', code: '#f5f5f5', gradient: 'from-gray-50 to-gray-100' }
+                ],
+                storages: [
+                    { size: '512 GB', priceAdd: 0 }
+                ]
+            },
+            { 
+                name: 'Xiaomi 14', 
+                storage: '256 GB', 
+                color: 'Fehér', 
+                price: 279990, 
+                monthly: 11666, 
+                image: '📱', 
+                gradient: 'from-slate-100 to-slate-200',
+                colors: [
+                    { name: 'Fehér', code: '#f5f5f5', gradient: 'from-slate-50 to-slate-100' },
+                    { name: 'Fekete', code: '#1a1a1a', gradient: 'from-gray-200 to-gray-300' },
+                    { name: 'Zöld', code: '#22c55e', gradient: 'from-green-100 to-green-200' }
+                ],
+                storages: [
+                    { size: '256 GB', priceAdd: 0 },
+                    { size: '512 GB', priceAdd: 60000 }
+                ]
+            },
+            { 
+                name: 'OnePlus 12', 
+                storage: '256 GB', 
+                color: 'Flowy Emerald', 
+                price: 329990, 
+                monthly: 13749, 
+                isNew: true, 
+                image: '📱', 
+                gradient: 'from-emerald-100 to-emerald-200',
+                colors: [
+                    { name: 'Flowy Emerald', code: '#10b981', gradient: 'from-emerald-100 to-emerald-200' },
+                    { name: 'Silky Black', code: '#1a1a1a', gradient: 'from-gray-200 to-gray-300' }
+                ],
+                storages: [
+                    { size: '256 GB', priceAdd: 0 },
+                    { size: '512 GB', priceAdd: 70000 }
+                ]
+            },
+            { 
+                name: 'Nothing Phone (2)', 
+                storage: '256 GB', 
+                color: 'Fehér', 
+                price: 249990, 
+                monthly: 10416, 
+                image: '📱', 
+                gradient: 'from-gray-100 to-white',
+                colors: [
+                    { name: 'Fehér', code: '#f5f5f5', gradient: 'from-gray-100 to-white' },
+                    { name: 'Szürke', code: '#4b5563', gradient: 'from-gray-200 to-gray-300' }
+                ],
+                storages: [
+                    { size: '128 GB', priceAdd: -20000 },
+                    { size: '256 GB', priceAdd: 0 },
+                    { size: '512 GB', priceAdd: 50000 }
+                ]
+            },
+        ];
+
+        // Current phone selection state
+        let currentPhoneSelection = {
+            phone: null,
+            colorIndex: 0,
+            storageIndex: 0
+        };
+
+        // Login functions
+        function openLoginModal() {
+            document.getElementById('loginModal').classList.remove('hidden');
+            document.getElementById('loginModal').classList.add('flex');
+            document.getElementById('errorMessage').classList.add('hidden');
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+
+        function closeLoginModal() {
+            document.getElementById('loginModal').classList.add('hidden');
+            document.getElementById('loginModal').classList.remove('flex');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('successModal').classList.remove('flex');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === validUser.username && password === validUser.password) {
+                closeLoginModal();
+                
+                document.getElementById('welcomeName').textContent = username;
+                document.getElementById('successModal').classList.remove('hidden');
+                document.getElementById('successModal').classList.add('flex');
+                
+                document.getElementById('loginBtn').classList.add('hidden');
+                document.getElementById('loggedInUser').textContent = 'Üdv, ' + username + '!';
+                document.getElementById('loggedInUser').classList.remove('hidden');
+                document.getElementById('logoutBtn').classList.remove('hidden');
+            } else {
+                document.getElementById('errorMessage').classList.remove('hidden');
+            }
+        }
+
+        function logout() {
+            document.getElementById('loginBtn').classList.remove('hidden');
+            document.getElementById('loggedInUser').classList.add('hidden');
+            document.getElementById('logoutBtn').classList.add('hidden');
+        }
+
+        // Plan selection functions
+        function selectPlan(planName, planPrice) {
+            document.getElementById('selectedPlanName').textContent = planName;
+            document.getElementById('selectedPlanPrice').textContent = planPrice;
+            document.getElementById('planModal').classList.remove('hidden');
+            document.getElementById('planModal').classList.add('flex');
+        }
+
+        function closePlanModal() {
+            document.getElementById('planModal').classList.add('hidden');
+            document.getElementById('planModal').classList.remove('flex');
+        }
+
+        function confirmPlan() {
+            closePlanModal();
+            alert('Köszönjük a megrendelést! Hamarosan felvesszük Önnel a kapcsolatot.');
+        }
+
+        // Phone modal functions
+        function openPhoneModal(phoneName) {
+            const phone = phones.find(p => p.name === phoneName);
+            if (!phone) return;
+
+            // Initialize selection state
+            currentPhoneSelection = {
+                phone: phone,
+                colorIndex: 0,
+                storageIndex: 0
+            };
+
+            document.getElementById('phoneModalTitle').textContent = phone.name;
+            updatePhoneModalContent();
+            
+            document.getElementById('phoneModal').classList.remove('hidden');
+            document.getElementById('phoneModal').classList.add('flex');
+        }
+
+        function updatePhoneModalContent() {
+            const phone = currentPhoneSelection.phone;
+            const selectedColor = phone.colors[currentPhoneSelection.colorIndex];
+            const selectedStorage = phone.storages[currentPhoneSelection.storageIndex];
+            
+            const currentPrice = phone.price + selectedStorage.priceAdd;
+            const currentMonthly = Math.round(currentPrice / 24);
+            
+            let discountHtml = '';
+            if (phone.discount) {
+                discountHtml = `<span class="bg-red-500 text-white px-2 py-1 rounded text-sm font-bold ml-2">-${phone.discount}%</span>`;
+            }
+            if (phone.isNew) {
+                discountHtml = `<span class="bg-green-500 text-white px-2 py-1 rounded text-sm font-bold ml-2">Új!</span>`;
+            }
+
+            let priceHtml = '';
+            if (phone.originalPrice) {
+                const adjustedOriginal = phone.originalPrice + selectedStorage.priceAdd;
+                priceHtml = `<span class="text-gray-400 line-through mr-2">${adjustedOriginal.toLocaleString()} Ft</span>`;
+            }
+
+            // Generate color buttons
+            let colorButtonsHtml = phone.colors.map((color, index) => {
+                const isSelected = index === currentPhoneSelection.colorIndex;
+                const borderClass = isSelected ? 'border-netanor ring-2 ring-netanor ring-offset-2' : 'border-gray-300 hover:border-netanor';
+                return `<button onclick="selectPhoneColor(${index})" 
+                    class="w-10 h-10 rounded-full border-2 ${borderClass} transition-all duration-200 relative group"
+                    style="background-color: ${color.code}"
+                    title="${color.name}">
+                    ${isSelected ? '<svg class="w-5 h-5 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>' : ''}
+                </button>`;
+            }).join('');
+
+            // Generate storage buttons
+            let storageButtonsHtml = phone.storages.map((storage, index) => {
+                const isSelected = index === currentPhoneSelection.storageIndex;
+                const selectedClass = isSelected 
+                    ? 'border-netanor bg-blue-50 text-netanor' 
+                    : 'border-gray-300 hover:border-netanor text-gray-700';
+                const priceIndicator = storage.priceAdd > 0 
+                    ? `<span class="text-xs text-gray-500 block">+${storage.priceAdd.toLocaleString()} Ft</span>` 
+                    : storage.priceAdd < 0 
+                        ? `<span class="text-xs text-green-600 block">${storage.priceAdd.toLocaleString()} Ft</span>`
+                        : '';
+                return `<button onclick="selectPhoneStorage(${index})" 
+                    class="px-4 py-2 rounded-lg border-2 ${selectedClass} font-medium transition-all duration-200">
+                    ${storage.size}
+                    ${priceIndicator}
+                </button>`;
+            }).join('');
+
+            document.getElementById('phoneModalContent').innerHTML = `
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/2">
+                        <div id="phoneImageContainer" class="h-64 bg-gradient-to-br ${selectedColor.gradient} rounded-xl flex items-center justify-center transition-all duration-300">
+                            <span class="text-9xl">${phone.image}</span>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">${phone.name} ${discountHtml}</h4>
+                        <p class="text-gray-500 mb-4"><span id="selectedStorageText">${selectedStorage.size}</span> • <span id="selectedColorText">${selectedColor.name}</span></p>
+                        
+                        <div class="mb-4">
+                            ${priceHtml}
+                            <span class="text-3xl font-bold text-netanor" id="currentPriceText">${currentPrice.toLocaleString()}</span>
+                            <span class="text-gray-600">Ft</span>
+                        </div>
+                        
+                        <p class="text-green-600 mb-6" id="monthlyPriceText">vagy ${currentMonthly.toLocaleString()} Ft/hó (24 hónap)</p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <h5 class="font-bold text-gray-800">Választható színek:</h5>
+                            <div class="flex gap-3 flex-wrap" id="colorButtonsContainer">
+                                ${colorButtonsHtml}
+                            </div>
+                            <p class="text-sm text-gray-500">Kiválasztva: <span class="font-medium text-gray-700">${selectedColor.name}</span></p>
+                        </div>
+                        
+                        <div class="space-y-3 mb-6">
+                            <h5 class="font-bold text-gray-800">Választható tárhely:</h5>
+                            <div class="flex gap-2 flex-wrap" id="storageButtonsContainer">
+                                ${storageButtonsHtml}
+                            </div>
+                        </div>
+                        
+                        <button onclick="buyPhone('${phone.name}', '${selectedColor.name}', '${selectedStorage.size}')" class="w-full bg-gradient-to-r from-netanor to-netanor-light text-white py-3 rounded-full font-bold hover:shadow-glow transition">
+                            Kosárba teszem
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function selectPhoneColor(index) {
+            currentPhoneSelection.colorIndex = index;
+            updatePhoneModalContent();
+        }
+
+        function selectPhoneStorage(index) {
+            currentPhoneSelection.storageIndex = index;
+            updatePhoneModalContent();
+        }
+
+        function closePhoneModal() {
+            document.getElementById('phoneModal').classList.add('hidden');
+            document.getElementById('phoneModal').classList.remove('flex');
+        }
+
+        function buyPhone(phoneName, colorName, storageSize) {
+            closePhoneModal();
+            alert(`${phoneName} (${colorName}, ${storageSize}) hozzáadva a kosárhoz! Köszönjük a vásárlást!`);
+        }
+
+        function openAllPhonesModal() {
+            let phonesHtml = '';
+            phones.forEach(phone => {
+                let badge = '';
+                if (phone.discount) {
+                    badge = `<div class="absolute top-2 right-2"><span class="bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">-${phone.discount}%</span></div>`;
+                }
+                if (phone.isNew) {
+                    badge = `<div class="absolute top-2 right-2"><span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-bold">Új!</span></div>`;
+                }
+
+                phonesHtml += `
+                    <div class="bg-slate-50 rounded-xl p-4 hover:-translate-y-1 transition-all duration-300 border border-blue-100 cursor-pointer relative" onclick="closeAllPhonesModal(); openPhoneModal('${phone.name}')">
+                        ${badge}
+                        <div class="h-32 bg-gradient-to-br ${phone.gradient} rounded-lg flex items-center justify-center mb-3">
+                            <span class="text-5xl">${phone.image}</span>
+                        </div>
+                        <h4 class="font-bold text-gray-800 text-sm">${phone.name}</h4>
+                        <p class="text-gray-500 text-xs mb-2">${phone.storage} • ${phone.color}</p>
+                        <p class="text-netanor font-bold">${phone.price.toLocaleString()} Ft</p>
+                    </div>
+                `;
+            });
+
+            document.getElementById('allPhonesList').innerHTML = phonesHtml;
+            document.getElementById('allPhonesModal').classList.remove('hidden');
+            document.getElementById('allPhonesModal').classList.add('flex');
+        }
+
+        function closeAllPhonesModal() {
+            document.getElementById('allPhonesModal').classList.add('hidden');
+            document.getElementById('allPhonesModal').classList.remove('flex');
+        }
+
+        // Close modals when clicking outside
+        ['loginModal', 'successModal', 'planModal', 'phoneModal', 'allPhonesModal'].forEach(modalId => {
+            document.getElementById(modalId).addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.add('hidden');
+                    this.classList.remove('flex');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
