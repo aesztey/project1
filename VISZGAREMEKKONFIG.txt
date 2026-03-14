@@ -1,0 +1,1106 @@
+GYŐRSW1:
+
+
+Building configuration...
+
+Current configuration : 2851 bytes
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname GYORSW1
+!
+!
+!
+ip domain-name Netanor.com
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface Port-channel1
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ switchport access vlan 100
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/2
+ switchport access vlan 200
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/3
+ switchport mode trunk
+!
+interface FastEthernet0/4
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/5
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/6
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/7
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/8
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/9
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/10
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/11
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/12
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/13
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/14
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/15
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/16
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/17
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/18
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/19
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/20
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/21
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/22
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/23
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/24
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet0/1
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface GigabitEthernet0/2
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+!
+!
+!
+line con 0
+ password cisco
+ login
+!
+line vty 0 4
+ password cisco
+ login
+ transport input ssh
+line vty 5 15
+ password cisco
+ login
+ transport input ssh
+!
+!
+!
+!
+end
+
+
+GYŐRSW2:
+
+
+Building configuration...
+
+Current configuration : 2929 bytes
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname GYORSW2
+!
+!
+!
+ip domain-name Netanor.com
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface Port-channel1
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ switchport mode trunk
+!
+interface FastEthernet0/2
+ switchport access vlan 300
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+ switchport port-security mac-address sticky 0090.0C40.E729
+!
+interface FastEthernet0/3
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/4
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/5
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/6
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/7
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/8
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/9
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/10
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/11
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/12
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/13
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/14
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/15
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/16
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/17
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/18
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/19
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/20
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/21
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/22
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/23
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/24
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet0/1
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface GigabitEthernet0/2
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+!
+!
+!
+line con 0
+ password cisco
+ login
+!
+line vty 0 4
+ password cisco
+ login
+ transport input ssh
+line vty 5 15
+ password cisco
+ login
+ transport input ssh
+!
+!
+!
+!
+end
+
+
+GYŐRR1:
+
+
+Building configuration...
+
+Current configuration : 1896 bytes
+!
+version 15.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname GYORR1
+!
+!
+!
+!
+!
+!
+!
+!
+ip cef
+ipv6 unicast-routing
+!
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip domain-name Netanor.com
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Tunnel0
+ ip address 67.67.67.6 255.255.255.252
+ mtu 1476
+ tunnel source GigabitEthernet0/0/1
+ tunnel destination 20.20.20.2
+!
+!
+interface GigabitEthernet0/0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0/0.10
+ encapsulation dot1Q 100
+ ip address 192.168.198.65 255.255.255.192
+ ipv6 address 2001:2006::1:1/64
+ ipv6 ospf 15 area 0
+ standby 1 ip 192.168.198.66
+ standby 1 preempt
+!
+interface GigabitEthernet0/0/0.20
+ encapsulation dot1Q 200
+ ip address 192.168.198.129 255.255.255.192
+ ipv6 address 2001:2007::1:1/64
+ ipv6 ospf 15 area 0
+ standby 2 ip 192.168.198.130
+ standby 2 priority 254
+ standby 2 preempt
+!
+interface GigabitEthernet0/0/0.30
+ encapsulation dot1Q 300
+ ip address 192.168.198.195 255.255.255.192
+ ipv6 address 2001:2008::1:1/64
+ ipv6 ospf 15 area 0
+ standby 3 ip 192.168.198.194
+ standby 3 priority 254
+ standby 3 preempt
+!
+interface GigabitEthernet0/0/1
+ ip address 20.20.20.10 255.255.255.252
+ duplex auto
+ speed auto
+ ipv6 address 2001:2002::1:2/64
+!
+interface GigabitEthernet0/0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 10
+ log-adjacency-changes
+ network 192.168.198.64 0.0.0.63 area 0
+ network 192.168.198.128 0.0.0.63 area 0
+ network 192.168.198.192 0.0.0.63 area 0
+ network 20.20.20.8 0.0.0.3 area 0
+!
+ipv6 router ospf 15
+ log-adjacency-changes
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ password cisco
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password cisco
+ login
+ transport input ssh
+line vty 5 15
+ password cisco
+ login
+ transport input ssh
+!
+!
+!
+end
+
+
+GYŐRR2:
+
+
+Building configuration...
+
+Current configuration : 2112 bytes
+!
+version 15.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname GYORR2
+!
+!
+!
+!
+!
+!
+!
+!
+ip cef
+ipv6 unicast-routing
+!
+no ipv6 cef
+!
+!
+!
+username SZEGEDR1 password 0 cisco
+username admin privilege 15 password 0 admin
+!
+!
+!
+!
+!
+!
+!
+!
+ip domain-name Netanor.com
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0/0.10
+ encapsulation dot1Q 100
+ ip address 192.168.198.67 255.255.255.192
+ ipv6 address 2001:2006::1:2/64
+ ipv6 ospf 15 area 0
+ standby 1 ip 192.168.198.66
+ standby 1 priority 10
+!
+interface GigabitEthernet0/0/0.20
+ encapsulation dot1Q 200
+ ip address 192.168.198.131 255.255.255.192
+ ipv6 address 2001:2007::1:2/64
+ ipv6 ospf 15 area 0
+ standby 2 ip 192.168.198.130
+ standby 2 priority 10
+ standby 2 preempt
+!
+interface GigabitEthernet0/0/0.30
+ encapsulation dot1Q 300
+ ip address 192.168.198.193 255.255.255.192
+ ipv6 address 2001:2008::1:2/64
+ ipv6 ospf 15 area 0
+ standby 3 ip 192.168.198.194
+ standby 3 priority 254
+ standby 3 preempt
+!
+interface GigabitEthernet0/0/1
+ ip address 20.20.20.14 255.255.255.252
+ duplex auto
+ speed auto
+ ipv6 address 2001:2003::1:1/64
+!
+interface GigabitEthernet0/0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/1/0
+ ip address 10.10.10.1 255.255.255.252
+ encapsulation ppp
+ ppp authentication chap
+!
+interface Serial0/1/1
+ no ip address
+ clock rate 2000000
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 10
+ log-adjacency-changes
+ network 192.168.198.192 0.0.0.63 area 0
+ network 192.168.198.64 0.0.0.63 area 0
+ network 192.168.198.128 0.0.0.63 area 0
+ network 20.20.20.12 0.0.0.3 area 0
+ network 10.10.10.0 0.0.0.3 area 0
+!
+ipv6 router ospf 15
+ log-adjacency-changes
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+access-list 1 permit host 192.168.198.200
+!
+!
+!
+!
+!
+line con 0
+ password cisco
+ login
+!
+line aux 0
+!
+line vty 0 4
+ access-class 1 in
+ password cisco
+ login local
+ transport input ssh
+line vty 5 15
+ password cisco
+ login
+ transport input ssh
+!
+!
+!
+end
+
+
+BPR1:
+
+Building configuration...
+
+Current configuration : 1352 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname BPR1
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+ipv6 unicast-routing
+!
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2811/K9 sn FTX1017IZR9-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip domain-name Netanor.com
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 20.20.20.1 255.255.255.252
+ duplex auto
+ speed auto
+ ipv6 address 2001:2001::1:1/64
+!
+interface FastEthernet0/1
+ ip address 20.20.20.5 255.255.255.252
+ duplex auto
+ speed auto
+ ipv6 address 2001:2002::1:1/64
+!
+interface Ethernet0/2/0
+ ip address 20.20.20.9 255.255.255.252
+ duplex auto
+ speed auto
+ ipv6 address 2001:2003::1:1/64
+!
+interface Ethernet0/3/0
+ ip address 20.20.20.13 255.255.255.252
+ ip ospf cost 120
+ duplex auto
+ speed auto
+ ipv6 address 2001:2004::1:1/64
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 10
+ log-adjacency-changes
+ network 20.20.20.0 0.0.0.3 area 0
+ network 20.20.20.4 0.0.0.3 area 0
+ network 20.20.20.8 0.0.0.3 area 0
+ network 20.20.20.12 0.0.0.3 area 0
+!
+ipv6 router ospf 15
+ log-adjacency-changes
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ password cisco
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password cisco
+ login
+ transport input ssh
+line vty 5 15
+ password cisco
+ login
+ transport input ssh
+!
+!
+!
+end
+
+
+MISKOLCR1:
+
+
+Building configuration...
+
+Current configuration : 1190 bytes
+!
+version 15.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname MISKOLCR1
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+ipv6 unicast-routing
+!
+no ipv6 cef
+!
+!
+!
+username SZEGEDR1 password 0 cisco
+!
+!
+!
+!
+!
+!
+!
+!
+ip domain-name Netanor.com
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0/0
+ ip address 20.20.20.6 255.255.255.252
+ duplex auto
+ speed auto
+ ipv6 address 2001:2004::1:2/64
+ ipv6 ospf 15 area 0
+!
+interface GigabitEthernet0/0/1
+ ip address 192.168.200.1 255.255.255.0
+ duplex auto
+ speed auto
+ ipv6 address 2001:2009::1:1/64
+ ipv6 ospf 15 area 0
+!
+interface GigabitEthernet0/0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 10
+ log-adjacency-changes
+ network 192.168.201.0 0.0.0.255 area 0
+ network 192.168.200.0 0.0.0.255 area 0
+ network 20.20.20.4 0.0.0.3 area 0
+!
+ipv6 router ospf 15
+ log-adjacency-changes
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ password cisco
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password cisco
+ login
+ transport input ssh
+line vty 5 15
+ password cisco
+ login
+ transport input ssh
+!
+!
+!
+end
+
+
+SZEGEDR1:
+
+
+Building configuration...
+
+Current configuration : 1992 bytes
+!
+version 15.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname SZEGEDR1
+!
+!
+!
+!
+!
+!
+!
+!
+ip cef
+ipv6 unicast-routing
+!
+no ipv6 cef
+!
+!
+!
+username GYORR2 password 0 cisco
+!
+!
+!
+!
+!
+!
+!
+!
+ip domain-name Netanor.com
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Tunnel0
+ ip address 67.67.67.5 255.255.255.252
+ mtu 1476
+ tunnel source GigabitEthernet0/0/1
+ tunnel destination 20.20.20.10
+!
+!
+interface GigabitEthernet0/0/0
+ ip address 192.168.199.1 255.255.255.0
+ ip nat inside
+ duplex auto
+ speed auto
+ ipv6 address 2001:2005::1:1/64
+ ipv6 ospf 15 area 0
+!
+interface GigabitEthernet0/0/1
+ ip address 20.20.20.2 255.255.255.252
+ duplex auto
+ speed auto
+ ipv6 address 2001:2001::1:2/64
+ ipv6 ospf 15 area 0
+!
+interface GigabitEthernet0/0/2
+ no ip address
+ duplex auto
+ speed auto
+!
+interface Serial0/1/0
+ ip address 10.10.10.2 255.255.255.252
+ encapsulation ppp
+ ppp authentication chap
+ clock rate 2000000
+!
+interface Serial0/1/1
+ ip address 10.10.10.5 255.255.255.252
+ ip access-group 101 in
+ ip nat outside
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 10
+ log-adjacency-changes
+ network 192.168.199.0 0.0.0.255 area 0
+ network 20.20.20.0 0.0.0.3 area 0
+ network 10.10.10.0 0.0.0.3 area 0
+ default-information originate
+!
+ipv6 router ospf 15
+ log-adjacency-changes
+!
+ip nat pool PAT 201.69.21.2 201.69.21.2 netmask 255.255.255.0
+ip nat inside source list 10 pool PAT overload
+ip nat inside source static 192.168.199.10 200.68.20.1 
+ip classless
+ip route 0.0.0.0 0.0.0.0 Serial0/1/1 
+!
+ip flow-export version 9
+!
+!
+access-list 10 permit host 192.168.199.20
+access-list 101 deny ip 192.168.1.0 0.0.0.255 host 192.168.199.10
+access-list 101 deny ip 192.168.1.0 0.0.0.255 host 200.68.20.1
+access-list 101 permit ip any any
+!
+!
+!
+!
+!
+line con 0
+ password cisco
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password cisco
+ login
+ transport input ssh
+line vty 5 15
+ password cisco
+ login
+ transport input ssh
+!
+!
+!
+end
+
+
+ISP:
+
+
+Building configuration...
+
+Current configuration : 887 bytes
+!
+version 15.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname ISP
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0/0
+ ip address 192.168.1.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/1/0
+ ip address 10.10.10.6 255.255.255.252
+ clock rate 2000000
+!
+interface Serial0/1/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 10
+ log-adjacency-changes
+!
+ip classless
+ip route 0.0.0.0 0.0.0.0 Serial0/1/0 
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
+
